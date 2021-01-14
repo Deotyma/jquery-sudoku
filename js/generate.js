@@ -85,13 +85,20 @@ $(document).ready(function() {
             for (var j = 0; j < 9; j++) {
                 sudoku[i][j] = allSudoku[randomLigne][index];
                 index++;
-            }
-
+            };
         };
-        console.log(sudoku);
+
+        $('#grid').html(sudoku);
+
+
+        function displaySudoku() {
+
+        } //end function displaySudoku()
+
+        displaySudoku()
 
     } //end function generateSudoku()
-
+    //button Nouveau SUDOKU
     $("#generate").click(generateSudoku);
 
-});
+}); // end $(document).ready(function()
