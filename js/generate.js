@@ -1,3 +1,14 @@
+var sudoku = [
+    [3, 9, 1, 2, 8, 5, 7, 4, 6],
+    [5, 4, 6, 9, 3, 7, 2, 1, 8],
+    [2, 7, 8, 6, 1, 4, 9, 5, 3],
+    [7, 2, 4, 8, 6, 3, 1, 9, 5],
+    [8, 1, 5, 4, 7, 9, 6, 3, 2],
+    [6, 3, 9, 5, 2, 1, 4, 8, 7],
+    [1, 5, 2, 7, 9, 8, 3, 6, 4],
+    [9, 8, 7, 3, 4, 6, 5, 2, 1],
+    [4, 6, 3, 1, 5, 2, 8, 7, 9]
+];
 var allSudoku = [
     "....7..4..28...617.......9...................2.6..4..51826...73394....56765......",
     "....4....49...1.....2...74.2....4..8..4...95...7.5....6..48.5.3548.......2...5.8.",
@@ -58,27 +69,28 @@ var selectedTile;
 
 $(document).ready(function() {
     //function for generate new sudoku grid
-    function displaySudoku() {
+    /* function displaySudoku() {
         for (var i = 0; i < 9; i++) {
             $('table')
 
         };
     }
-
+ */
     //function for generate new sudoku
     function generateSudoku() {
-        var max = allSudoku.length;
-        var randomLigne = Math.floor(Math.random() * max);
-        var newSudoku = allSudoku[randomLigne];
+        var randomLigne = Math.floor(Math.random() * (allSudoku.length - 1));
 
+        var index = 0
         for (var i = 0; i < 9; i++) {
             for (var j = 0; j < 9; j++) {
-                console.log(newSudoku[i][j])
+                sudoku[i][j] = allSudoku[randomLigne][index];
+                index++;
             }
-        }
 
+        };
+        console.log(sudoku);
 
-    }
+    } //end function generateSudoku()
 
     $("#generate").click(generateSudoku);
 
