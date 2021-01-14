@@ -88,17 +88,16 @@ $(document).ready(function() {
             };
         };
 
-        $('#grid').html(sudoku);
-
+        $('#grid').append(`<div id='sudoku'>  ${sudoku} </div>`);
 
         function displaySudoku() {
 
+
         } //end function displaySudoku()
-
         displaySudoku()
-
     } //end function generateSudoku()
     //button Nouveau SUDOKU
+
     $("#generate").click(generateSudoku);
 
 }); // end $(document).ready(function()
