@@ -68,36 +68,39 @@ var selectedTile;
 
 
 $(document).ready(function() {
-    //function for generate new sudoku grid
-    /* function displaySudoku() {
+            //function for generate new sudoku grid
+            /* function displaySudoku() {
         for (var i = 0; i < 9; i++) {
             $('table')
 
         };
     }
  */
-    //function for generate new sudoku
-    function generateSudoku() {
-        var randomLigne = Math.floor(Math.random() * (allSudoku.length - 1));
+            //function for generate new sudoku
+            function generateSudoku() {
+                var randomLigne = Math.floor(Math.random() * (allSudoku.length - 1));
 
-        var index = 0
-        for (var i = 0; i < 9; i++) {
-            for (var j = 0; j < 9; j++) {
-                sudoku[i][j] = allSudoku[randomLigne][index];
-                index++;
-            };
-        };
+                var index = 0
+                for (var i = 0; i < 9; i++) {
+                    for (var j = 0; j < 9; j++) {
+                        sudoku[i][j] = allSudoku[randomLigne][index];
+                        index++;
+                    };
+                };
 
-        $('#grid').append(`<div id='sudoku'>  ${sudoku} </div>`);
+                $('#grid').append(`<div id='sudoku'>  ${sudoku} </div>`);
 
-        function displaySudoku() {
+                function displaySudoku() {
+                    for (var i = 0; i < 9; i++) {
+                        for (var j = 0; j < 9; j++) {
+                            $(`#${i}-${j}`).html(sudoku[i][j])
+                        }
 
+                    } //end function displaySudoku()
+                    displaySudoku()
+                } //end function generateSudoku()
+                //button Nouveau SUDOKU
 
-        } //end function displaySudoku()
-        displaySudoku()
-    } //end function generateSudoku()
-    //button Nouveau SUDOKU
+                $("#generate").click(generateSudoku);
 
-    $("#generate").click(generateSudoku);
-
-}); // end $(document).ready(function()
+            }); // end $(document).ready(function()
