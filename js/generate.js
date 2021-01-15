@@ -9,6 +9,7 @@ var sudoku = [
     [9, 8, 7, 3, 4, 6, 5, 2, 1],
     [4, 6, 3, 1, 5, 2, 8, 7, 9]
 ];
+
 var allSudoku = [
     "....7..4..28...617.......9...................2.6..4..51826...73394....56765......",
     "....4....49...1.....2...74.2....4..8..4...95...7.5....6..48.5.3548.......2...5.8.",
@@ -66,39 +67,60 @@ var selectedNum;
 var selectedTile;
 
 
-
 $(document).ready(function() {
-    //function for generate new sudoku grid
-    /* function displaySudoku() {
-        for (var i = 0; i < 9; i++) {
-            $('table')
-
-        };
-    }
- */
-    //function for generate new sudoku
+    //function to generate a new sudoku board
     function generateSudoku() {
-        var randomLigne = Math.floor(Math.random() * (allSudoku.length - 1));
+        var randomLine = Math.floor(Math.random() * (allSudoku.length - 1));
+        console.log(allSudoku[randomLine]);
 
         var index = 0
         for (var i = 0; i < 9; i++) {
             for (var j = 0; j < 9; j++) {
-                sudoku[i][j] = allSudoku[randomLigne][index];
+                sudoku[i][j] = allSudoku[randomLine][index];
                 index++;
-            };
-        };
+            }
+        }
+        console.log(sudoku);
+    }
+    generateSudoku();
 
-        $('#grid').html(sudoku);
+
+    $("#sudokuBox").addClass("container-fluid")
+        .append($("<div>").addClass("col"))
+        .append($("<h1>").html("Sudoko Borad"))
+        .append(generateSudoku())
 
 
-        function displaySudoku() {
+    function displaySudoku() {
+        for (var i = 0; i < 9; i++) {
+            for (var j = 0; j < 9; j++) {
+                var value = grid[i][j];
+                if (value === ".") {
+                    var rowNum = `${row}-${value}`,
+                        colNum = `${col}-${value}`,
+                        boxNum = `${Math.floor(row/3)}-${value}-${Math.floor(col/3)}`
 
-        } //end function displaySudoku()
 
-        displaySudoku()
+                }
+            }
+        }
+    }
 
-    } //end function generateSudoku()
-    //button Nouveau SUDOKU
-    $("#generate").click(generateSudoku);
 
-}); // end $(document).ready(function()
+});
+
+/*
+                    $('#grid').html(sudoku);
+
+
+                    function displaySudoku() {
+
+                    } //end function displaySudoku()
+
+                    displaySudoku()
+
+               // } //end function generateSudoku()
+                //button Nouveau SUDOKU
+                $("#generate").click(generateSudoku);
+
+           // ; // end $(document).ready(function()*/

@@ -12,3 +12,10 @@ body {
     background-color: #2afc98;
     color: #214f4b;
 }
+
+.label {
+    position: absolute;
+    color: #aaa;
+    top: 1px;
+    left: 1px;
+}
