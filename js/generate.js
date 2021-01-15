@@ -101,14 +101,20 @@ $(document).ready(function() {
         function displaySudoku() {
             for (let i = 0; i < 9; i++) {
                 for (var j = 0; j < 9; j++) {
-                    $(`<div id="${i}-${j}" class="tile"> ${sudoku[i][j]}</div>`).appendTo('#grid');
+                    $(`<div id="tile${i}-${j}" class="tile"> ${sudoku[i][j]}</div>`).appendTo('#grid');
                 };
+
+
 
             };
 
-
         }; //end function displaySudoku()
-        displaySudoku()
+        function backgroundChange() {
+            var nbImage = Math.floor(Math.random() * 9);
+            $("body").css("backgroundImage", "url(./images/japan" + nbImage + ".jpg)");
+        }
+        displaySudoku();
+        backgroundChange()
 
     } //end function generateSudoku()
 
