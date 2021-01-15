@@ -120,7 +120,7 @@ $(document).ready(function() {
 
 
     //button Nouveau SUDOKU
-
+    generateSudoku();
     $("#generate").click(generateSudoku);
 
 }); // end $(document).ready(function()
