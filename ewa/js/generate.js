@@ -114,8 +114,9 @@ $(document).ready(function() {
             $("body").css("backgroundImage", "url(./images/japan" + nbImage + ".jpg)");
         }
         resetGame();
-        displaySudoku();
         backgroundChange();
+        displaySudoku();
+
 
     } //end function generateSudoku()
 
