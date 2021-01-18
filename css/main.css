@@ -1,4 +1,4 @@
-    .container {
+.container {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -28,13 +28,12 @@ body {
     width: 3rem;
     height: 3rem;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     border: solid 2px #214f4b;
     text-align: center;
     font-size: 2rem;
     justify-items: center;
     margin: 0;
-    padding: 0;
 }
 
 #tile0-3,
@@ -73,7 +72,7 @@ body {
 #tile8-3,
 #tile8-4,
 #tile8-5 {
-    background-color: rgba(33, 79, 75, 0.5);
+    background-color: rgba(33, 79, 75, 0.75);
 }
 
 .bold {
@@ -84,3 +83,4 @@ body {
 .normal {
     color: black;
     font-weight: normal;
+}

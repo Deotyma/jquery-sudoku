@@ -88,8 +88,6 @@ $(document).ready(function() {
                     sudoku[i][j] = " ";
                 } else {
                     sudoku[i][j] = parseInt(sudoku[i][j])
-
-
                 }
                 index++;
             };
@@ -98,13 +96,15 @@ $(document).ready(function() {
 
 
         //function display sudoku
+        function resetGame() {
+            $("#grid").html('');
+        }
+
         function displaySudoku() {
             for (let i = 0; i < 9; i++) {
                 for (var j = 0; j < 9; j++) {
                     $(`<div id="tile${i}-${j}" class="tile"> ${sudoku[i][j]}</div>`).appendTo('#grid');
                 };
-
-
 
             };
 
@@ -113,8 +113,9 @@ $(document).ready(function() {
             var nbImage = Math.floor(Math.random() * 9);
             $("body").css("backgroundImage", "url(./images/japan" + nbImage + ".jpg)");
         }
+        resetGame();
         displaySudoku();
-        backgroundChange()
+        backgroundChange();
 
     } //end function generateSudoku()
 
