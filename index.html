@@ -2,33 +2,41 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sudoku</title>
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+
 </head>
 
 <body>
+
     <nav class="navbar navbar-transparent bg-transparent">
-        <a class="navbar-brand"></a>
+        <a class="navbar-brand">
+            <h1>Sudoku</h1>
+        </a>
     </nav>
 
-    <section class="sudoku">
-        <div id="sudokuBox">
+    <div class="sudoku container">
+
+        <div id="sudokuBoard">
 
         </div>
-    </section>
+
+        <!-- Button -->
+        <div class="controls">
+            <button type="button" class="btn btn-outline-dark" id="generateNew">Generate</button>
+            <button type="button" class="btn btn-outline-dark" id="solve">Solve</button>
+        </div>
 
 
-    <!-- Boutton -->
 
-    <div class="boutton">
-        <button type="button" class="btn btn-outline-dark" id="generateNew">Generate</button>
-        <button type="button" class="btn btn-outline-dark" id="solve">Solve</button>
-    </div>
-
-    <script src="../assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../assets/js/functions.js"></script>
-    <script src="./generate.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="./js/generate.js"></script>
 </body>
 
 </html>

@@ -63,11 +63,10 @@ var allSudoku = [
     "3....2..94....3......8.....7.34..2...8..2......5....9.91.......8.................",
 ];
 
-var selectedNum;
-var selectedTile;
-
-
+/*
 $(document).ready(function() {
+
+    // ----------------------------------------------------------------------------
     //function to generate a new sudoku board
     function generateSudoku() {
         var randomLine = Math.floor(Math.random() * (allSudoku.length - 1));
@@ -77,50 +76,85 @@ $(document).ready(function() {
         for (var i = 0; i < 9; i++) {
             for (var j = 0; j < 9; j++) {
                 sudoku[i][j] = allSudoku[randomLine][index];
+                if (sudoku[i][j] === ".") {
+                    sudoku[i][j] = " ";
+                } else {
+                    sudoku[i][j] = parseInt(sudoku[i][j]);
+                }
                 index++;
-            }
-        }
-        console.log(sudoku);
-    }
-    generateSudoku();
+            };
+        };
+    };
 
-
-    $("#sudokuBox").addClass("container-fluid")
-        .append($("<div>").addClass("col"))
-        .append($("<h1>").html("Sudoko Borad"))
-        .append(generateSudoku())
-
-
+    // ----------------------------------------------------------------------------
+    //function to display the sudoku board
     function displaySudoku() {
         for (var i = 0; i < 9; i++) {
             for (var j = 0; j < 9; j++) {
-                var value = grid[i][j];
-                if (value === ".") {
-                    var rowNum = `${row}-${value}`,
-                        colNum = `${col}-${value}`,
-                        boxNum = `${Math.floor(row/3)}-${value}-${Math.floor(col/3)}`
-
-
-                }
+                //$("#sudokuBox").append.(`<div id="sudokuCells${i} ${j}" class="cells"> ${sudoku[i][j]} </div>`);
+                $(`<div id="cell${i}${j}" class="cell"> ${sudoku[i][j]} </div>`).appendTo("#sudokuBoard");
             }
         }
-    }
+    };
+
+    generateSudoku();
+    displaySudoku();
+
+    $("#generateNew").on("click", function() {
+        generateSudoku();
+        displaySudoku();
+    });
+*/
 
 
+
+// ----------------------------------------------------------------------------
+//function to generate a new sudoku board
+$(document).ready(function() {
+    $("#generateNew").on("click", function() {
+        resetGame();
+        generateSudoku();
+        displaySudoku();
+    });
 });
 
-/*
-                    $('#grid').html(sudoku);
+function generateSudoku() {
+    var randomLine = Math.floor(Math.random() * (allSudoku.length - 1));
+    console.log(allSudoku[randomLine]);
 
+    var index = 0
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+            sudoku[i][j] = allSudoku[randomLine][index];
+            if (sudoku[i][j] === ".") {
+                sudoku[i][j] = " ";
+            } else {
+                sudoku[i][j] = parseInt(sudoku[i][j]);
+            }
+            index++;
+        };
+    };
+};
+generateSudoku();
 
-                    function displaySudoku() {
+// ----------------------------------------------------------------------------
+/** Reset game. */
+function resetGame() {
+    $("#sudokuBoard").html('');
+}
 
-                    } //end function displaySudoku()
+// ----------------------------------------------------------------------------
+/** Generate HTML sudoku grid.*/
 
-                    displaySudoku()
+function displaySudoku() {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+            //$("#sudokuBox").append.(`<div id="sudokuCells${i} ${j}" class="cells"> ${sudoku[i][j]} </div>`);
+            $(`<div id="cell${i}${j}" class="cell"> ${sudoku[i][j]} </div>`).appendTo("#sudokuBoard");
+        }
+    }
+};
+displaySudoku();
 
-               // } //end function generateSudoku()
-                //button Nouveau SUDOKU
-                $("#generate").click(generateSudoku);
-
-           // ; // end $(document).ready(function()*/
+// ----------------------------------------------------------------------------
+/** Reset of sudoku data.*/
